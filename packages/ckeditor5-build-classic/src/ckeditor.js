@@ -29,6 +29,7 @@ import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from '@ckeditor/ckeditor5-table/src/table';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation';
+import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize';
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -48,6 +49,8 @@ ClassicEditor.builtinPlugins = [
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
+	ImageResize,
+	LinkImage,
 	Indent,
 	Link,
 	List,
@@ -84,11 +87,18 @@ ClassicEditor.defaultConfig = {
 	},
 	image: {
 		toolbar: [
-			'imageStyle:full',
-			'imageStyle:side',
+			"imageStyle:full",
+			"imageStyle:side",
+			"imageStyle:alignLeft",
+			"imageStyle:alignCenter",
+			"imageStyle:alignRight",
+			"|",
+			"imageTextAlternative",
 			'|',
-			'imageTextAlternative'
-		]
+			'linkImage'
+		],
+		styles: ["full", "side", "alignLeft", "alignCenter", "alignRight"],
+		resizeUnit: "px",
 	},
 	table: {
 		contentToolbar: [
